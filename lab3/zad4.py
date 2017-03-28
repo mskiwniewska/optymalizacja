@@ -1,11 +1,9 @@
 import numpy
 import itertools
 
-
-print ('Algorytm stosowalny do problemów w postaci normalnej (Ax<=b i x>=0)')
+print ('Algorytm stosowany do problemów w postaci normalnej (Ax<=b i x>=0)')
 
 #kilka podstawowych funkcji
-
 #sprawdzamy ze wspolrzedne sa >=0
 def wspnieujemne(z):
     wspnieujemne = True
@@ -15,11 +13,9 @@ def wspnieujemne(z):
     return wspnieujemne
 
 # operacje na macierzach 
-
 # wybieramy kolumne z macierzy
 def wybierzkolumne(tablica, kolumnaX):
     return tablica[:, [kolumnaX]]
-
 
 # dodajemy kolumne na koniec 
 def dodajkolumne(tablica, kolumna):
@@ -28,9 +24,8 @@ def dodajkolumne(tablica, kolumna):
     else:
         return numpy.append(tablica,kolumna, 1)
 
-
 # wybieramy mozliwe kolumny z ktorych stworzymy kwadratowa macierz
-def wybormoliwychkolumn(k, l):
+def wybormozliwychkolumn(k, l):
     for kolumny in itertools.permutations(range(k + l), k):
         if kolumny == tuple(sorted(kolumny)):
             yield kolumny
@@ -49,7 +44,6 @@ iloscograniczen = int(input('Liczba ograniczen: '))
 
 A = []
 b = []
-
 
 # nasze ograniczenia (oraz A,b,c)
 for i in range(iloscograniczen):
@@ -72,7 +66,7 @@ c = numpy.array(c)
 
 maxZ = float('-inf')
 maxX = []
-for kolumny in wybormoliwychkolumn(ilosc,iloscograniczen):
+for kolumny in wybormozliwychkolumn(ilosc,iloscograniczen):
     a = None
     for i in kolumny:
         a = dodajkolumne(a, wybierzkolumne(A, i))
