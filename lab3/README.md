@@ -1,17 +1,21 @@
-Zastosowanie algorytmu przeglądającego wszystkie wierzchołki
+Zastosowanie algorytmu przeglądającego wszystkie wierzchołki.
 
 https://repl.it/Gimi/2
 
-Algorytm wykonałam z Klaudią Stępień
+Algorytm wykonałam z Klaudią Stępień.
 
 Wyniki dla naszego algorytmu: 
 
 a) dla zad.4/lab3
 
 max(x1+x2)
+
 -x1+x2<=1
+
 x1<=3
+
 x2<=2
+
 x1,x2>=0
 
 Wynik:
