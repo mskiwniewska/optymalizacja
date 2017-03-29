@@ -1,0 +1,45 @@
+#A,b,c dla naszych danych z zadania
+
+c = (1,1)
+b = (1,3,2)
+A = ([-1,1],[1,0],[0,1])
+
+ILPPS = InteractiveLPProblemStandardForm(A,b,c,["x1","x2"])
+show(ILPPS)
+
+# max x1+x2 
+# -x1+x2<=1
+# x1<=3
+# x1,x2>=0
+
+
+# zastosowanie metody sympleks
+
+ILPPSD = ILPPS.initial_dictionary()
+show(ILPPSD)
+ 
+# x3=1+x1-x2
+# x4=3-x1
+# x5=2-x2
+# z=0+x1+x2
+
+print ILPPSD.possible_entering()
+ILPPSD.enter("x1")
+print ILPPSD.possible_leaving()
+ILPPSD.leave("x4")
+show(ILPPSD)
+
+ILPPSD.update()
+show(ILPPSD)
+
+print ILPPSD.possible_entering()
+ILPPSD.enter("x2")
+print ILPPSD.possible_leaving()
+ILPPSD.leave("x5")
+show(ILPPSD)
+
+ILPPSD.update()
+show(ILPPSD)
+
+# geometrycznie
+ILPPS.plot()
