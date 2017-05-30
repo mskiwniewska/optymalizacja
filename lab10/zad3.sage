@@ -47,7 +47,7 @@ MILPP.set_objective(k)
 for i in range(len(macierz)):
     for j in range(len(macierz)):
         if macierz[i][j]==1:
-            MILPP.add_constraint(y[0, i]+y[1, j]>=1)
+            MILPP.add_constraint(y[0,i]+y[1,j]>=1)
 # wyniki
 print 'PROBLEM DUALNY: \n'
 show(MILPP.solve())
