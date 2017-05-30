@@ -1,4 +1,3 @@
 Program wykonałam z Klaudią Stępień.
 
-http://sagecell.sagemath.org/?q=ypvbzg
-
+http://sagecell.sagemath.org/?q=eolfmk
