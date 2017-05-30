@@ -6,18 +6,18 @@ show(macierz)
 # to nasza macierz polaczen w grafie
 # PL dla x
 MILP = MixedIntegerLinearProgram(maximization=True)
-x = MILP.new_variable(integer=True, nonnegative=True)
-k = 0
+x = MILP.new_variable(integer=True,nonnegative=True)
 # range() & len()
+k = 0  # funckja celu
 for i in range(len(macierz)):
     for j in range(len(macierz)):
         if macierz[i][j] == 1:
             k += x[i, j]
 MILP.set_objective(j)
-# nierownosci
+# ograniczenia
 # range() & len()
 for i in range(len(macierz)):
-    c = 0
+    c = 0 # funkcja celu
     for j in range(len(macierz)):
         if macierz[i][j] == 1:
             c += x[i, j]
@@ -29,25 +29,27 @@ for j in range(len(macierz)):
             c += x[i, j]
     MILP.add_constraint(c <= 1)
 # wyniki 
+print "PROBLEM BAZOWY: \n"
 show(MILP.solve())
 wartosc_x = MILP.get_values(x)
 show(wartosc_x)
 #program dualny
 #PL dla y
 MILPP = MixedIntegerLinearProgram(maximization=False)
-y = MILPP.new_variable(integer=True, nonnegative=True)
-k = 0
+y = MILPP.new_variable(integer=True,nonnegative=True)
 # range() & len()
+k = 0 # funkcja celu
 for i in range(2):
     for j in range(len(macierz)):
         k += y[i, j]
 MILPP.set_objective(k)
-# nierownosci
+# ograniczenia
 for i in range(len(macierz)):
     for j in range(len(macierz)):
         if macierz[i][j] == 1:
             MILPP.add_constraint(y[0, i] + y[1, j] >= 1)
-# wyniki 
+# wyniki
+print 'PROBLEM DUALNY: \n'
 show(MILPP.solve())
 wartosc_y = MILPP.get_values(y)
 show(wartosc_y)
