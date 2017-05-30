@@ -8,7 +8,7 @@ show(macierz)
 MILP = MixedIntegerLinearProgram(maximization=True)
 x = MILP.new_variable(integer=True,nonnegative=True)
 # range() & len()
-k = 0  # funckja celu
+k = 0  # funkcja celu
 for i in range(len(macierz)):
     for j in range(len(macierz)):
         if macierz[i][j] == 1:
