@@ -1,3 +1,3 @@
 Program wykonałam z Klaudią Stępień.
 
-http://sagecell.sagemath.org/?q=eolfmk
+http://sagecell.sagemath.org/?q=kihstd
